@@ -1,7 +1,3 @@
-
-///////////////////////////////////
-// Módulo para correr la prueba  //
-///////////////////////////////////
 class test #(parameter width = 16, parameter depth =8); 
   
   comando_test_sb_mbx    test_sb_mbx;
@@ -13,17 +9,13 @@ class test #(parameter width = 16, parameter depth =8);
   instrucciones_agente instr_agent;
   solicitud_sb instr_sb;
    
- // Definición del ambiente de la prueba
   ambiente #(.depth(depth),.width(width)) ambiente_inst;
- // Definición de la interface a la que se conectará el DUT
   virtual fifo_if  #(.width(width)) _if;
 
-  //definción de las condiciones iniciales del test
   function new; 
-    // instaciación de los mailboxes
     test_sb_mbx  = new();
     test_agent_mbx = new();
-    // Definición y conexión del dirver
+
     ambiente_inst = new();
     ambiente_inst._if = _if;    
     ambiente_inst.test_sb_mbx = test_sb_mbx;

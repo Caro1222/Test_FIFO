@@ -1,13 +1,10 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Checker/scoreboard: este objeto es responsable de verificar que el comportamiento del DUT sea el esperado //
-////////////////////////////////////////////////////////////////////////////////////////////////////
 class checker #(parameter width=16, parameter depth =8);
-  trans_fifo #(.width(width)) transaccion; //transacción recibida en el mailbox 
-  trans_fifo #(.width(width)) auxiliar; //transacción usada como auxiliar para leer el fifo emulado 
-  trans_sb   #(.width(width)) to_sb; // transacción usada para comunicarse con el scoreboard
-  trans_fifo  emul_fifo[$]; //this queue is going to be used as golden reference for the fifo
-  trans_fifo_mbx drv_chkr_mbx; // Este mailbox es el que comunica con el driver/monitor
-  trans_sb_mbx  chkr_sb_mbx; // Este mailbox es el que comunica el checker con el scoreboard
+  trans_fifo #(.width(width)) transaccion;
+  trans_fifo #(.width(width)) auxiliar; 
+  trans_sb   #(.width(width)) to_sb; 
+  trans_fifo  emul_fifo[$]; 
+  trans_fifo_mbx drv_chkr_mbx; 
+  trans_sb_mbx  chkr_sb_mbx; 
   int contador_auxiliar; 
 
   function new();
@@ -40,7 +37,7 @@ class checker #(parameter width=16, parameter depth =8);
             $display("Dato_leido= %h, Dato_Esperado = %h",transaccion.dato,auxiliar.dato);
             $finish; 
            end
-         end else begin // si está vacía genera un underflow 
+         end else begin 
              to_sb.tiempo_pop = transaccion.tiempo;
              to_sb.underflow = 1;
              to_sb.print("Checker: Underflow");
@@ -48,7 +45,7 @@ class checker #(parameter width=16, parameter depth =8);
          end
        end
        escritura: begin
-         if(emul_fifo.size() == depth)begin // Revisa si la Fifo está llena para generar un overflow
+         if(emul_fifo.size() == depth)begin 
            auxiliar = emul_fifo.pop_front();
            to_sb.dato_enviado = auxiliar.dato;
            to_sb.tiempo_push = auxiliar.tiempo;
@@ -56,12 +53,12 @@ class checker #(parameter width=16, parameter depth =8);
            to_sb.print("Checker: Overflow");
            chkr_sb_mbx.put(to_sb);
            emul_fifo.push_back(transaccion);
-         end else begin  // En caso de no estar llena simplemente guarda el dato en la fifo simulada
+         end else begin 
            transaccion.print("Checker: Escritura");
            emul_fifo.push_back(transaccion);
          end
        end
-       reset: begin // en caso de reset vacía la fifo simulada y envía todos los datos perdidos al SB
+       reset: begin 
          contador_auxiliar = emul_fifo.size();
          for(int i =0; i<contador_auxiliar; i++)begin
            auxiliar = emul_fifo.pop_front();

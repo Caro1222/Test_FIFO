@@ -1,12 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////////////////////
-// Agente/Generador: Este bloque se encarga de generar las secuencias de eventos para el driver //
-// En este ejemplo se generarán 2 tipos de secuencias:                                          //
-//    llenado_vaciado: En esta se genera un número parametrizable de tarnsacciones de lecturas  //
-//                     y escrituras para llenar y vaciar la fifo.                               //
-//    Aleatoria: En esta se generarán transacciones totalmente aleatorias                       //
-//    Específica: en este tipo se generan trasacciones semi específicas para casos esquina      // 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
 class agent #(parameter width = 16, parameter depth = 8);
   trans_fifo_mbx agnt_drv_mbx;           // Mailbox del agente al driver
   comando_test_agent_mbx test_agent_mbx; // Mailbox del test al agente

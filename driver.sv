@@ -42,6 +42,15 @@
 	     drv_chkr_mbx.put(transaction); 
 	     transaction.print("Driver: Transaccion ejecutada");
 	   end
+	   escritura_lectura: begin
+             transaction.dato = vif.dato_out;
+             transaction.tiempo = $time;
+             @(posedge vif.clk);
+	     vif.pop = 1;
+             vif.push = 1;
+	     drv_chkr_mbx.put(transaction);
+	     transaction.print("Driver: Transaccion ejecutada");
+           end
 	   reset: begin
 	     vif.rst =1;
 	     transaction.tiempo = $time;

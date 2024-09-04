@@ -1,10 +1,10 @@
 `timescale 1ns/1ps
 `include "fifo.sv"
-`include "interface_transactions.sv"
+`include "transacciones_interface.sv"
 `include "driver.sv"
 `include "checker.sv"
 `include "score_board.sv"
-`include "agent.sv"
+`include "agente.sv"
 `include "ambiente.sv"
 `include "test.sv"
 
@@ -40,7 +40,6 @@ module test_bench;
       t0.run();
     join_none
   end
- 
   always@(posedge clk) begin
     if ($time > 100000)begin
       $display("Test_bench: Tiempo límite de prueba en el test_bench alcanzado");

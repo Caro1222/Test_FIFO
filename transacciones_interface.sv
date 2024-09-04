@@ -1,4 +1,4 @@
-typedef enum { lectura, escritura, lectura_escritura, reset} tipo_trans; 
+typedef enum { lectura, escritura, escritura_lectura, reset} tipo_trans; 
 
 class trans_fifo #(parameter width = 16);
   rand int retardo; 

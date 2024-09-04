@@ -1,9 +1,0 @@
-agente.sv
-ambiente.sv
-checker.sv
-driver.sv
-fifo.sv
-score_board.sv
-tb.sv
-test.sv
-transacciones_interface.sv

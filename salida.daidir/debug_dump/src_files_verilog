@@ -1,9 +1,0 @@
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/agente.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/ambiente.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/checker.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/driver.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/fifo.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/score_board.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/tb.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/test.sv
-/mnt/vol_NFS_rh003/Est_Verif_II2024/ZUNIGA_BLANCO/Test_FIFO/transacciones_interface.sv

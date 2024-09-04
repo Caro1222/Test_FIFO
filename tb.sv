@@ -31,7 +31,7 @@ module test_bench;
     .rst(_if.rst)
   );
 
-  initial begin
+  initial begin // :)
     clk = 0;
     t0 = new();
     t0._if = _if;

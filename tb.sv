@@ -8,9 +8,6 @@
 `include "ambiente.sv"
 `include "test.sv"
 
-///////////////////////////////////
-// Módulo para correr la prueba  //
-///////////////////////////////////
 module test_bench; 
   reg clk;
   parameter width = 16;

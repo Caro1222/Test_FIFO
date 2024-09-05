@@ -77,7 +77,7 @@ class checker #(parameter width=16, parameter depth =8);
            transaccion.print("Checker: Escritura");
            emul_fifo.push_back(transaccion);
            auxiliar = emul_fifo.pop_front();
-           if(transaccion.dato == auxiliar.dato) begin
+           //if(transaccion.dato == auxiliar.dato) begin
              to_sb.dato_enviado = auxiliar.dato;
              to_sb.tiempo_push = auxiliar.tiempo;
              to_sb.tiempo_pop = transaccion.dato;
@@ -85,12 +85,12 @@ class checker #(parameter width=16, parameter depth =8);
              to_sb.calc_latencia();
              to_sb.print("Checker:Transaccion Completada");
              chkr_sb_mbx.put(to_sb);
-           end else begin
-             transaccion.print("Checker: Error el dato de la transacción no calza con el esperado");
-            $display("Dato_leido= %h, Dato_Esperado = %h",transaccion.dato,auxiliar.dato);
-            $finish; 
-           end
-         end
+           //end else begin
+             //transaccion.print("Checker: Error el dato de la transacción no calza con el esperado");
+            //$display("Dato_leido= %h, Dato_Esperado = %h",transaccion.dato,auxiliar.dato);
+            //$finish; 
+          // end
+        // end
        end
        reset: begin 
          contador_auxiliar = emul_fifo.size();

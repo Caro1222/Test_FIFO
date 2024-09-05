@@ -43,7 +43,7 @@
 	     transaction.print("Driver: Transaccion ejecutada");
 	   end
 	   escritura_lectura: begin
-             transaction.dato = vif.dato_out;
+             //transaction.dato = vif.dato_out; 
              transaction.tiempo = $time;
              @(posedge vif.clk);
 	     vif.pop = 1;
